@@ -1,8 +1,8 @@
 <?php
-namespace Cobaia\Provider\Cilex;
+namespace Cobaia\Buzz\Provider\Silex;
 
-use Cilex\Application;
-use Cilex\ServiceProviderInterface;
+use Silex\Application;
+use Silex\ServiceProviderInterface;
 
 class BuzzServiceProvider implements ServiceProviderInterface
 {
@@ -14,7 +14,9 @@ class BuzzServiceProvider implements ServiceProviderInterface
 
 	public function register(Application $app)
 	{
-        $app['buzz'] = $app->share(function () use ($app) {
+		$options = isset($app['buzz.options']) ? array_merge($this->options, $app['buzz.options']) : $this->options;
+
+        $app['buzz'] = $app->share(function () use ($app, $options) {
             $app['buzz.client'] = new Buzz\Client\Curl();
             $app['buzz.browser'] = new Buzz\Browser();
 
