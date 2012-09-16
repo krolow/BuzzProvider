@@ -1,0 +1,17 @@
+{
+	"name" : "cobaia/buzz-provider",
+	"description" : "Dependecy Injection provider for Buzz to use in Silex or Cilex",
+	"keywords" : ["buzz", "provider", "silex", "cilex"],
+	"homepage" : "http://github.com/krolow/BuzzProvider",
+	"license" : "MIT",
+	"authors" : [
+		{
+			"name" : "Vinícius Krolow",
+			"email" : "krolow@gmail.com"
+		}
+	],	
+	"require": {
+        "php": ">=5.3.0"
+		"kriswallsmith/buzz" : ">=0.7"
+	}
+}
