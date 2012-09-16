@@ -15,8 +15,8 @@ class BuzzServiceProvider implements ServiceProviderInterface
 	public function register(Application $app)
 	{
         $app['buzz'] = $app->share(function () use ($app) {
-            $app['buzz.client'] = new Buzz\Client\Curl();
-            $app['buzz.browser'] = new Buzz\Browser();
+            $app['buzz.client'] = new \Buzz\Client\Curl();
+            $app['buzz.browser'] = new \Buzz\Browser($app['buzz.client']);
 
             return $app['buzz.browser'];
         });
